@@ -5,11 +5,11 @@ import 'package:analyzer/dart/element/element.dart';
 
 import 'annotations.dart';
 
+// Generator for DTO annotation
 class DTOGenerator extends GeneratorForAnnotation<DTO> {
   @override
   FutureOr<String?> generateForAnnotatedElement(
       Element element, ConstantReader annotation, BuildStep buildStep) async {
-
     final buffer = StringBuffer();
     buffer.writeln('/* GENERATED CODE - DO NOT MODIFY */');
 
@@ -54,7 +54,6 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
 
       buffer.writeln('List<String> errors = [];\n');
 
-
       for (var field in classElement.fields) {
         var fieldName = field.name;
         var annotations = field.metadata;
@@ -64,8 +63,7 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
           var annotationType = annotation.computeConstantValue()?.type;
           if (annotationType != null) {
             var annotationTypeName =
-            annotationType.getDisplayString(withNullability: true);
-
+                annotationType.getDisplayString(withNullability: true);
 
             switch (annotationTypeName) {
               case 'IsString':
@@ -100,15 +98,18 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
                 break;
               case 'IsDateTime':
                 buffer.writeln('if (!($fieldName is DateTime)) {');
-                buffer.writeln('errors.add(\'$fieldName must be a DateTime\');');
+                buffer
+                    .writeln('errors.add(\'$fieldName must be a DateTime\');');
                 buffer.writeln('}');
                 break;
               case 'IsEmail':
                 buffer.writeln('if (!($fieldName is String)) {');
                 buffer.writeln('errors.add(\'$fieldName must be a String\');');
                 buffer.writeln('}');
-                buffer.writeln('if (!RegExp(r\'^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}\$\').hasMatch(map[\'$fieldName\'])) {');
-                buffer.writeln('errors.add(\'$fieldName must be a valid email\');');
+                buffer.writeln(
+                    'if (!RegExp(r\'^\\w+@[a-zA-Z_]+?\\.[a-zA-Z]{2,3}\$\').hasMatch(map[\'$fieldName\'])) {');
+                buffer.writeln(
+                    'errors.add(\'$fieldName must be a valid email\');');
                 buffer.writeln('}');
                 break;
               case 'IsNotEmpty':
@@ -119,7 +120,6 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
             }
           }
         }
-
       }
 
       buffer.writeln('if (errors.isNotEmpty) {');

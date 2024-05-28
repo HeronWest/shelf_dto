@@ -4,10 +4,8 @@ import 'package:test/test.dart';
 import '../example/dto/user_dto.dart';
 
 void main() {
-
   group('A group of tests', () {
     test('should return is empty and not null error', () {
-
       final userDTO = UserDTOValidator.fromMap({
         'name': null,
         'age': 30,
