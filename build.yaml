@@ -1,0 +1,16 @@
+targets:
+  $default:
+    builders:
+      shelf_dtos|dto_builder:
+        enabled: true
+        generate_for:
+          - lib/dto/**
+
+builders:
+  shelf_dtos|dto_builder:
+    import: "package:shelf_dtos/src/dto_builder.dart"
+    builder_factories: ["dtoBuilder"]
+    auto_apply: dependents
+    build_to: source
+    applies_builders: ["source_gen|combining_builder"]
+    build_extensions: {".dart": [".dto.dart"]}
