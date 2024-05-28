@@ -1,3 +1,3 @@
-## 0.1.0 (2024-05-28)
+## 0.1.1 (2024-05-28)
 
-- Initial version.
+- Fixing Package Analysis on pub.dev.
