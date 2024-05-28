@@ -1,6 +1,6 @@
 name: shelf_dto
 description: A simple dto builder for dart, use annotations and code gen to create simple and complete DTO for your project.
-version: 0.1.2
+version: 0.1.2+1
 repository: https://github.com/HeronWest/shelf_dto
 
 environment:

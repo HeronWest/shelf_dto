@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="generator" content="made with love by dartdoc 8.0.3">
+  <meta name="description" content="shelf_dto API docs, for the Dart programming language.">
+  <title>shelf_dto - Dart API docs</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" rel="stylesheet">
+  
+  <link rel="stylesheet" href="static-assets/github.css?v1">
+  <link rel="stylesheet" href="static-assets/styles.css?v1">
+  <link rel="icon" href="static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="" data-using-base-href="false" class="light-theme">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <span id="sidenav-left-toggle" class="material-symbols-outlined" role="button" tabindex="0">menu</span>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li class="self-crumb">shelf_dto package</li>
+  </ol>
+  <div class="self-name">shelf_dto</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+  <div class="toggle" id="theme-button">
+    <label for="theme">
+      <input type="checkbox" id="theme" value="light-theme">
+      <span id="dark-theme-button" class="material-symbols-outlined">
+        brightness_4
+      </span>
+      <span id="light-theme-button" class="material-symbols-outlined">
+        brightness_5
+      </span>
+    </label>
+  </div>
+</header>
+<main>
+
+  <div id="dartdoc-main-content" class="main-content">
+      
+<section class="desc markdown">
+  <h1 id="shelf_dto">shelf_dto</h1>
+<p>shelf_dto is a Dart library inspired by the class-validator from NestJS. It's designed to simplify the creation and validation of Data Transfer Objects (DTOs) in Dart applications. This library leverages annotations to define and enforce validation rules directly within your DTO classes.</p>
+<h2 id="features">Features</h2>
+<ul>
+<li><strong>Declarative Validation:</strong> Use annotations to specify validation rules.</li>
+<li><strong>Easy Integration:</strong> Simple to integrate with existing Dart projects.</li>
+<li><strong>Code Generation:</strong> Automatically generate validation logic using build_runner.</li>
+</ul>
+<h2 id="installation">Installation</h2>
+<p>To use shelf_dto, add it to your <code>pubspec.yaml</code>:</p>
+<pre class="language-yaml"><code class="language-yaml">dependencies:
+  shelf_dto: ^0.1.0
+
+dev_dependencies:
+  build_runner: ^2.1.7
+</code></pre>
+<h2 id="getting-started">Getting Started</h2>
+<p>Step 1: Define Your DTO</p>
+<p>Create a Dart file for your DTO and import the necessary annotations and exceptions from shelf_dto. Use the @DTO annotation to mark your class as a DTO and add validation annotations to your fields.</p>
+<pre class="language-dart"><code class="language-dart">
+import 'package:shelf_dto/shelf_dto.dart';
+
+part 'user_dto.dto.dart';
+
+@DTO()
+class UserDTO {
+  @IsString()
+  @IsNotEmpty()
+  final String? name;
+
+  @IsInt()
+  final int? age;
+
+  UserDTO._(this.name, this.age);
+}
+</code></pre>
+<p>Step 2: Generate Validation Logic</p>
+<p>Run the build_runner command to generate the validation logic:</p>
+<pre class="language-sh"><code class="language-sh">
+dart run build_runner build
+</code></pre>
+<p>This command processes the annotations and creates the necessary code for validating your DTOs.
+Usage Example</p>
+<p>After generating the validation logic, you can now use your DTO with confidence that it will enforce the specified validation rules. Here’s how you might use the UserDTO class:</p>
+<pre class="language-dart"><code class="language-dart">
+import 'package:shelf_dto/shelf_dto.dart';
+
+import 'dto/user_dto.dart';
+
+void main() {
+    final userDTO = UserDTOValidator.fromMap({
+      'name': 'heron',
+      'age': 30,
+    });
+
+    try {
+      userDTO.validate();
+
+      String name = userDTO.name;
+      int age = userDTO.age;
+      print('Name: $name, Age: $age');
+
+    } on DTOException catch (e) {
+      print(e.errors);
+    }
+}
+</code></pre>
+<h2 id="annotations">Annotations</h2>
+<p>Field Annotations</p>
+<pre class="language-dart"><code>@IsString(): Ensures the field is a string.
+@IsNotEmpty(): Ensures the field is not empty.
+@IsInt(): Ensures the field is an integer.
+</code></pre>
+<p>Class Annotation</p>
+<pre class="language-dart"><code>@DTO(): Marks the class as a Data Transfer Object for validation purposes.
+</code></pre>
+<h2 id="exception-handling">Exception Handling</h2>
+<p>shelf_dtos uses custom exceptions to handle validation errors. The ValidationException contains details about which fields failed validation and why.</p>
+<h2 id="license">License</h2>
+<p>This project is licensed under the BSD 3 License. See the LICENSE file for details.</p>
+<h2 id="contributing">Contributing</h2>
+<p>Contributions are welcome! Please submit a pull request or open an issue to discuss what you would like to change.</p>
+<p>With shelf_dtos, creating and validating DTOs in Dart becomes a streamlined and efficient process, allowing you to focus on building robust applications with confidence in your data integrity.</p>
+</section>
+
+
+      <section class="summary">
+          <h2>Libraries</h2>
+        <dl>
+          <dt id="shelf_dto">
+  <span class="name"><a href="shelf_dto/shelf_dto-library.html">shelf_dto</a></span> 
+
+</dt>
+<dd>
+</dd>
+
+        </dl>
+      </section>
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <!-- The search input and breadcrumbs below are only responsively visible at low resolutions. -->
+<header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+    <li class="self-crumb">shelf_dto package</li>
+</ol>
+
+
+    <h5 class="hidden-xs"><span class="package-name">shelf_dto</span> <span class="package-kind">package</span></h5>
+    <ol>
+      <li class="section-title">Libraries</li>
+      <li><a href="shelf_dto/shelf_dto-library.html">shelf_dto</a></li>
+</ol>
+
+  </div>
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div>
+
+</main>
+
+<footer>
+  <span class="no-break">
+    shelf_dto
+      0.1.2
+  </span>
+
+  
+</footer>
+
+
+
+<script src="static-assets/highlight.pack.js?v1"></script>
+<script src="static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
