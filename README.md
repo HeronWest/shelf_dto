@@ -1,6 +1,6 @@
-# shelf_dtos
+# shelf_dto
 
-shelf_dtos is a Dart library inspired by the class-validator from NestJS. It's designed to simplify the creation and validation of Data Transfer Objects (DTOs) in Dart applications. This library leverages annotations to define and enforce validation rules directly within your DTO classes.
+shelf_dto is a Dart library inspired by the class-validator from NestJS. It's designed to simplify the creation and validation of Data Transfer Objects (DTOs) in Dart applications. This library leverages annotations to define and enforce validation rules directly within your DTO classes.
 
 ## Features
 
@@ -10,11 +10,11 @@ shelf_dtos is a Dart library inspired by the class-validator from NestJS. It's d
 
 ## Installation
 
-To use shelf_dtos, add it to your `pubspec.yaml`:
+To use shelf_dto, add it to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  shelf_dtos: ^1.0.0
+  shelf_dto: ^0.1.0
 
 dev_dependencies:
   build_runner: ^2.1.7
@@ -23,12 +23,11 @@ dev_dependencies:
 ## Getting Started
 Step 1: Define Your DTO
 
-Create a Dart file for your DTO and import the necessary annotations and exceptions from shelf_dtos. Use the @DTO annotation to mark your class as a DTO and add validation annotations to your fields.
+Create a Dart file for your DTO and import the necessary annotations and exceptions from shelf_dto. Use the @DTO annotation to mark your class as a DTO and add validation annotations to your fields.
 
 ```dart
 
-import 'package:shelf_dtos/src/annotations.dart';
-import 'package:shelf_dtos/src/exceptions.dart';
+import 'package:shelf_dto/shelf_dto.dart';
 
 part 'user_dto.dto.dart';
 
@@ -60,7 +59,7 @@ After generating the validation logic, you can now use your DTO with confidence 
 
 ```dart
 
-import 'package:shelf_dtos/shelf_dto.dart';
+import 'package:shelf_dto/shelf_dto.dart';
 
 import 'dto/user_dto.dart';
 
@@ -99,7 +98,7 @@ Class Annotation
 shelf_dtos uses custom exceptions to handle validation errors. The ValidationException contains details about which fields failed validation and why.
 ## License
 
-This project is licensed under the MIT License. See the LICENSE file for details.
+This project is licensed under the BSD 3 License. See the LICENSE file for details.
 ## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss what you would like to change.

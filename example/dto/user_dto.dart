@@ -1,5 +1,5 @@
-import 'package:shelf_dtos/src/annotations.dart';
-import 'package:shelf_dtos/src/exceptions.dart';
+import 'package:shelf_dto/src/annotations.dart';
+import 'package:shelf_dto/src/exceptions.dart';
 
 part 'user_dto.dto.dart';
 

@@ -1,4 +1,4 @@
-import 'package:shelf_dtos/shelf_dto.dart';
+import 'package:shelf_dto/shelf_dto.dart';
 import 'package:test/test.dart';
 
 import '../example/dto/user_dto.dart';
@@ -31,7 +31,7 @@ void main() {
 
       try {
         userDTO.validate();
-      } on DTOException catch (e) {
+      } on DTOException {
         fail('should not throw exception');
       }
 

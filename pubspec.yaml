@@ -1,4 +1,4 @@
-name: shelf_dtos
+name: shelf_dto
 description: A simple dto builder for dart.
 version: 0.1.0
 repository: https://github.com/HeronWest/shelf_dtos
@@ -11,6 +11,7 @@ dependencies:
   build: ^2.4.1
   build_runner: ^2.4.9
   source_gen: ^1.5.0
+  analyzer: ^6.4.1
   # path: ^1.8.0
 
 dev_dependencies:

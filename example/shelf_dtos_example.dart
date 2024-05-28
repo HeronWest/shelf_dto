@@ -1,4 +1,4 @@
-import 'package:shelf_dtos/shelf_dto.dart';
+import 'package:shelf_dto/shelf_dto.dart';
 
 import 'dto/user_dto.dart';
 
