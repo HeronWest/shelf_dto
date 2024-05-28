@@ -60,17 +60,26 @@ After generating the validation logic, you can now use your DTO with confidence 
 
 ```dart
 
-import 'user_dto.dto.dart';
+import 'package:shelf_dtos/shelf_dto.dart';
+
+import 'dto/user_dto.dart';
 
 void main() {
-  try {
-    var user = UserDTO(name: "John Doe", age: 30);
-    // Validate the DTO
-    user.validate();
-    print('User is valid!');
-  } catch (ValidationException e) {
-    print('Validation failed: ${e.errors}');
-  }
+    final userDTO = UserDTOValidator.fromMap({
+      'name': 'heron',
+      'age': 30,
+    });
+
+    try {
+      userDTO.validate();
+
+      String name = userDTO.name;
+      int age = userDTO.age;
+      print('Name: $name, Age: $age');
+
+    } on DTOException catch (e) {
+      print(e.errors);
+    }
 }
 ```
 
