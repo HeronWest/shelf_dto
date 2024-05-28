@@ -1,30 +1,31 @@
-shelf_dtos
+# shelf_dtos
 
-shelf_dtos is a Dart library inspired by the class-validator from NestJS, designed to simplify the creation and validation of Data Transfer Objects (DTOs) in Dart applications. This library leverages annotations to define and enforce validation rules directly within your DTO classes.
-Features
+shelf_dtos is a Dart library inspired by the class-validator from NestJS. It's designed to simplify the creation and validation of Data Transfer Objects (DTOs) in Dart applications. This library leverages annotations to define and enforce validation rules directly within your DTO classes.
 
-    Declarative Validation: Use annotations to specify validation rules.
-    Easy Integration: Simple to integrate with existing Dart projects.
-    Code Generation: Automatically generate validation logic using build_runner.
+## Features
 
-Installation
+- **Declarative Validation:** Use annotations to specify validation rules.
+- **Easy Integration:** Simple to integrate with existing Dart projects.
+- **Code Generation:** Automatically generate validation logic using build_runner.
 
-To use shelf_dtos, add it to your pubspec.yaml:
+## Installation
 
-yaml
+To use shelf_dtos, add it to your `pubspec.yaml`:
 
+```yaml
 dependencies:
   shelf_dtos: ^1.0.0
 
 dev_dependencies:
   build_runner: ^2.1.7
+```
 
-Getting Started
+## Getting Started
 Step 1: Define Your DTO
 
 Create a Dart file for your DTO and import the necessary annotations and exceptions from shelf_dtos. Use the @DTO annotation to mark your class as a DTO and add validation annotations to your fields.
 
-dart
+```dart
 
 import 'package:shelf_dtos/src/annotations.dart';
 import 'package:shelf_dtos/src/exceptions.dart';
@@ -42,6 +43,7 @@ class UserDTO {
 
   UserDTO._(this.name, this.age);
 }
+```
 
 Step 2: Generate Validation Logic
 
@@ -56,7 +58,7 @@ Usage Example
 
 After generating the validation logic, you can now use your DTO with confidence that it will enforce the specified validation rules. Here’s how you might use the UserDTO class:
 
-dart
+```dart
 
 import 'user_dto.dto.dart';
 
@@ -70,8 +72,9 @@ void main() {
     print('Validation failed: ${e.errors}');
   }
 }
+```
 
-Annotations
+## Annotations
 Field Annotations
 
     @IsString(): Ensures the field is a string.
@@ -82,13 +85,13 @@ Class Annotation
 
     @DTO(): Marks the class as a Data Transfer Object for validation purposes.
 
-Exception Handling
+## Exception Handling
 
 shelf_dtos uses custom exceptions to handle validation errors. The ValidationException contains details about which fields failed validation and why.
-License
+## License
 
 This project is licensed under the MIT License. See the LICENSE file for details.
-Contributing
+## Contributing
 
 Contributions are welcome! Please submit a pull request or open an issue to discuss what you would like to change.
 
