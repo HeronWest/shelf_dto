@@ -49,10 +49,10 @@ Step 2: Generate Validation Logic
 
 Run the build_runner command to generate the validation logic:
 
-sh
+```sh
 
 dart run build_runner build
-
+```
 This command processes the annotations and creates the necessary code for validating your DTOs.
 Usage Example
 
