@@ -5,7 +5,7 @@ import 'package:analyzer/dart/element/element.dart';
 
 import 'annotations.dart';
 
-// Generator for DTO annotation
+/// Generator for DTO annotation
 class DTOGenerator extends GeneratorForAnnotation<DTO> {
   @override
   FutureOr<String?> generateForAnnotatedElement(
@@ -17,7 +17,7 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
       var classElement = element;
       buffer.writeln('class ${classElement.name}Validator {');
 
-      //Generate all final fields from DTO base example: final String? name, final int? age;
+      ///Generate all final fields from DTO base example: final String? name, final int? age;
       for (var field in classElement.fields) {
         var fieldName = field.name;
         buffer.writeln('dynamic $fieldName;');
@@ -30,7 +30,7 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
       }
       buffer.writeln('});\n');
 
-      //Create a factory constructor fromMap with validations by annotations like @IsEmpty or @IsInt
+      ///Create a factory constructor fromMap with validations by annotations like @IsEmpty or @IsInt
       buffer.writeln(
           'factory ${classElement.name}Validator.fromMap(Map<String, dynamic> map) {');
 
@@ -48,9 +48,13 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
       }
       buffer.writeln(');');
 
-      buffer.writeln('}'); // Close factory method
+      buffer.writeln('}');
 
-      buffer.writeln('validate() {'); // Function validate
+      /// Close factory method
+
+      buffer.writeln('validate() {');
+
+      /// Function validate
 
       buffer.writeln('List<String> errors = [];\n');
 
@@ -58,7 +62,7 @@ class DTOGenerator extends GeneratorForAnnotation<DTO> {
         var fieldName = field.name;
         var annotations = field.metadata;
 
-        // Check for specific annotations
+        /// Check for specific annotations
         for (var annotation in annotations) {
           var annotationType = annotation.computeConstantValue()?.type;
           if (annotationType != null) {

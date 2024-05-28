@@ -3,7 +3,7 @@ import 'package:shelf_dto/src/exceptions.dart';
 
 part 'user_dto.dto.dart';
 
-// Creating a DTO class for the User
+/// Creating a DTO class for the User
 @DTO()
 class UserDTO {
   @IsString()

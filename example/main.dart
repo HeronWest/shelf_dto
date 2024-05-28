@@ -2,7 +2,7 @@ import 'package:shelf_dto/shelf_dto.dart';
 
 import 'dto/user_dto.dart';
 
-// Main function to example the Example folder
+/// Main function to example the Example folder
 void main() {
   final userDTO = UserDTOValidator.fromMap({
     'name': 'heron',

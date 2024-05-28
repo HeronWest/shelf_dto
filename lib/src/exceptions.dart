@@ -1,4 +1,4 @@
-// Main exception for the package
+/// Main exception for the package
 class DTOException implements Exception {
   final List<String> errors;
 
